@@ -17,7 +17,7 @@ const fetchQuote = async () => {
 const updateQuote =  (randomQuote) => {
     quote.innerHTML = `“${randomQuote.content}”`;
     author.innerHTML = `-${randomQuote.author}`;
-    tweetButton.href =`https://twitter.com/intent/tweet/?text= ${randomQuote.content} - ${randomQuote.author}`;
+    tweetButton.href =`https://twitter.com/intent/tweet/?text=${encodeURIComponent(randomQuote.content + ` - ` + randomQuote.author)}`;
 }
 
 newQuoteButton.addEventListener("click", fetchQuote);
